@@ -57,3 +57,18 @@ go run ./main.go
 ```
 
 and you'll receive three notifications on your desktop every 5 seconds.
+
+## Todo
+
+- Push Bullet demo to be added.
+- Concurrency
+- GUI
+
+## Credits
+
+<https://github.com/gen2brain/beeep>
+<https://github.com/cschomburg/go-pushbullet>
+
+## License
+
+[`MGPL v1.2`](License/Mizumoto%20General%20Public%20License%20v1.2.md) as usual.
