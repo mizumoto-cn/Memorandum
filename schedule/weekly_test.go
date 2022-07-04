@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func GetSchedule() *Schedule {
+func getSchedule() *Schedule {
 	layout := time.RFC1123Z
 	value := time.Now().Format(layout)
 
@@ -16,7 +16,7 @@ func GetSchedule() *Schedule {
 }
 
 func setupWeekly(n uint32, weekdays ...time.Weekday) (*Schedule, Multiplexer) {
-	sc := GetSchedule()
+	sc := getSchedule()
 	m := &WeeklyMultiplexer{
 		Days:          weekdays,
 		NumberOfTimes: n,
@@ -24,7 +24,7 @@ func setupWeekly(n uint32, weekdays ...time.Weekday) (*Schedule, Multiplexer) {
 	return sc, m
 }
 
-func AssertExpectedRepeatNum(s *Schedule, m Multiplexer, n uint32, t *testing.T) {
+func assertExpectedRepeatNum(s *Schedule, m Multiplexer, n uint32, t *testing.T) {
 	l := s.Len()
 	err := m.Repeat(s)
 
@@ -36,8 +36,8 @@ func TestWeeklyCanRepeat(t *testing.T) {
 	var n uint32 = 10
 	var pres time.Time
 	day := time.Monday
-	s, r := setupWeekly(n, day)
-	AssertExpectedRepeatNum(s, r, n, t)
+	s, m := setupWeekly(n, day)
+	assertExpectedRepeatNum(s, m, n, t)
 
 	i := 0
 	for s.Len() > 0 {

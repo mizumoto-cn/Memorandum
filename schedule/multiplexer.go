@@ -10,5 +10,6 @@ type Multiplexer interface {
 // assert implementation check
 var _ Multiplexer = &WeeklyMultiplexer{}
 
-// var _ Multiplexer = &IntervalMultiplexer{}
-// var _ Multiplexer = &EbbinghausMultiplexer{}
+var _ Multiplexer = &IntervalMultiplexer{}
+
+var _ Multiplexer = &EbbinghausMultiplexer{}
