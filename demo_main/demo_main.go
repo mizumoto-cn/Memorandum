@@ -13,7 +13,7 @@ func main() {
 
 	// Schedule an event
 	format := time.RFC1123Z
-	s, _ := schedule.NewSchedule(format, time.Now().Format(format), "Local")
+	s, _ := schedule.NewSchedule("Local", format, time.Now().Format(format))
 
 	// Repeat it every 5 seconds
 	r := schedule.IntervalMultiplexer{
